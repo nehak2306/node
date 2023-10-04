@@ -6178,7 +6178,7 @@ var require_connect = __commonJS({
     var { InvalidArgumentError, ConnectTimeoutError } = require_errors();
     var tls;
     var SessionCache;
-    if (global.FinalizationRegistry) {
+    if (global.FinalizationRegistry && !process.env.NODE_V8_COVERAGE) {
       SessionCache = class WeakSessionCache {
         constructor(maxCachedSessions) {
           this._maxCachedSessions = maxCachedSessions;
